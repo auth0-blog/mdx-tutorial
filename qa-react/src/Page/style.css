@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  height: 100%; }
+  .container > div {
+    display: flex; }
+    .container > div .content {
+      flex: 1;
+      position: relative;
+      flex-basis: 82%;
+      float: right;
+      padding: 5rem 4rem; }
+      .container > div .content:after {
+        clear: both;
+        display: block;
+        position: relative;
+        content: "	"; }
+      .container > div .content h1, .container > div .content h2, .container > div .content h3, .container > div .content h4, .container > div .content h5, .container > div .content h6 {
+        color: #EB5323;
+        display: block;
+        padding: 1.5rem 0;
+        font-weight: 900; }
+      .container > div .content h1 {
+        font-size: 3rem; }
+      .container > div .content h2 {
+        font-size: 2.5rem; }
+      .container > div .content h3 {
+        font-size: 2.2rem; }
+      .container > div .content h4 {
+        font-size: 1.9rem; }
+      .container > div .content h5 {
+        font-size: 1.7rem; }
+      .container > div .content h6 {
+        font-size: 1.5rem; }
+      .container > div .content p {
+        font-size: 1.5rem;
+        font-weight: 300;
+        line-height: 1.5;
+        color: #232128; }
+      .container > div .content pre {
+        margin: 1rem auto;
+        padding: 2rem;
+        font-size: 1.2rem;
+        font-family: monospace;
+        background-color: #eeeeee; }
+      .container > div .content code {
+        font-family: monospace;
+        padding: 0.2rem;
+        background-color: #eeeeee; }
+      .container > div .content ul {
+        padding-left: 2rem;
+        margin: 1rem auto; }
+        .container > div .content ul li {
+          font-size: 1.5rem;
+          font-weight: 300;
+          line-height: 1.5;
+          color: #232128; }
+      .container > div .content a {
+        color: #EB5323;
+        font-weight: 300;
+        text-decoration: underline; }
+      .container > div .content table {
+        width: 100%;
+        margin: 1.5rem auto; }
+        .container > div .content table thead {
+          background-color: #eeeeee; }
+          .container > div .content table thead th {
+            text-align: left;
+            padding: 1rem;
+            font-size: 1.6rem; }
+        .container > div .content table tbody {
+          background-color: #ffffff; }
+          .container > div .content table tbody td {
+            border: thin solid #eeeeee;
+            font-size: 1.4rem;
+            padding: 0.6rem 1rem; }

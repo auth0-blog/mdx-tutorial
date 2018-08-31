@@ -2,7 +2,7 @@ import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import auth0Client from '../Auth';
 
-function NavBar(props) {
+function Header(props) {
   const signOut = () => {
     auth0Client.signOut();
     props.history.replace('/');
@@ -11,7 +11,7 @@ function NavBar(props) {
   return (
     <nav className="navbar navbar-dark bg-primary fixed-top">
       <Link className="navbar-brand" to="/">
-        Q&App
+        JollofJS Documentation App
       </Link>
       {
         !auth0Client.isAuthenticated() &&
@@ -28,4 +28,4 @@ function NavBar(props) {
   );
 }
 
-export default withRouter(NavBar);
+export default withRouter(Header);

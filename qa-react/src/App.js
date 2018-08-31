@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
-import NavBar from './NavBar/NavBar';
-import Question from './Question/Question';
-import Questions from './Questions/Questions';
+import {Route, Router} from 'react-router-dom';
+import Header from './Header/Header';
+import Welcome from './Welcome/Welcome';
 import Callback from './Callback';
-import NewQuestion from './NewQuestion/NewQuestion';
+import Page from "./Page/Page";
 import SecuredRoute from './SecuredRoute/SecuredRoute';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <NavBar/>
-        <Route exact path='/' component={Questions}/>
-        <Route exact path='/question/:questionId' component={Question}/>
-        <Route exact path='/callback' component={Callback}/>
-        <SecuredRoute path='/new-question' component={NewQuestion} />
+        <Header />
+        <Route exact path='/' component={Welcome} />
+        <Route exact path='/callback' component={Callback} />
+        <SecuredRoute path='/page/:page' component={Page} />
       </div>
     );
   }

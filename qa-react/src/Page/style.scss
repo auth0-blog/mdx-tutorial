@@ -1,0 +1,118 @@
+.container{
+	width: 100%;
+	height: 100%;
+
+	> div{
+		display: flex;
+
+		.content{
+			flex: 1;
+			position: relative;
+			flex-basis: 82%;
+			float: right;
+			padding: 5rem 4rem;
+
+			&:after{
+				clear: both;
+				display: block;
+				position: relative;
+				content: "	";
+			}
+
+			h1, h2, h3, h4, h5, h6{
+				color: #EB5323;
+				display: block;
+				padding: 1.5rem 0;
+				font-weight: 900;
+			}
+
+			h1{
+				font-size: 3rem;
+			}
+
+			h2{
+				font-size: 2.5rem;
+			}
+
+			h3{
+				font-size: 2.2rem;
+			}
+
+			h4{
+				font-size: 1.9rem;
+			}
+
+			h5{
+				font-size: 1.7rem;
+			}
+
+			h6{
+				font-size: 1.5rem;
+			}
+
+			p{
+				font-size: 1.5rem;
+				font-weight: 300;
+				line-height: 1.5;
+				color: #232128;
+			}
+
+			pre{
+				margin: 1rem auto;
+				padding: 2rem;
+				font-size: 1.2rem;
+				font-family: monospace;
+				background-color: #eeeeee;
+			}
+
+			code{
+				font-family: monospace;
+				padding: 0.2rem;
+				background-color: #eeeeee;
+			}
+
+			ul{
+				padding-left: 2rem;
+				margin: 1rem auto;
+
+				li{
+					font-size: 1.5rem;
+					font-weight: 300;
+					line-height: 1.5;
+					color: #232128;
+				}
+			}
+
+			a{
+				color: #EB5323;
+				font-weight: 300;
+				text-decoration: underline;
+			}
+
+			table{
+				width: 100%;
+				margin: 1.5rem auto;
+
+				thead{
+					background-color: #eeeeee;
+
+					th{
+						text-align: left;
+						padding: 1rem;
+						font-size: 1.6rem;
+					}
+				}
+
+				tbody{
+					background-color: #ffffff;
+
+					td{
+						border: thin solid #eeeeee;
+						font-size: 1.4rem;
+						padding: 0.6rem 1rem;
+					}
+				}
+			}
+		}
+	}
+}
