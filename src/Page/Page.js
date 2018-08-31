@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
-import shortid from "shortid";
 import Nav from "../Nav/Nav";
 import './style.css';
 
@@ -8,9 +6,9 @@ class Page extends Component {
 
     constructor(props){
       super(props);
+
       this.state = {
-        components: [],
-        refresh: true
+        Component: ''
       }
     }
 
@@ -18,35 +16,37 @@ class Page extends Component {
       import(`../markdown/${name}.mdx`)
         .then(component =>
           this.setState({
-            components: this.state.components.concat(component.default)
+            Component: component.default
           })
         )
         .catch(() => {
-          console.error(`"${name}" not yet supported`);
+          this.setState({
+            Component: ''
+          })
         });
     }
 
     static capitalize(text){
-        return text.substr(0, 1).toUpperCase() + text.substr(1);
+      return text.substr(0, 1).toUpperCase() + text.substr(1);
     }
 
     async componentDidMount() {
-        await this.addComponent(Page.capitalize(this.props.match.params.page));
+      await this.addComponent(Page.capitalize(this.props.match.params.page));
+    }
+
+    async componentWillReceiveProps(nextProps) {
+      await this.addComponent(Page.capitalize(nextProps.match.params.page));
     }
 
     render() {
-        const componentsElements = this.state.components.map(Component => (
-          <Component key={shortid.generate()} />
-        ));
-
-        console.log("ComponentsElements", componentsElements);
+        const { Component } = this.state;
 
         return (
             <div className="container">
                 <div>
                     <Nav />
                     <div className="content">
-                        {componentsElements}
+                        { Component ? <Component /> : null }
                     </div>
                 </div>
             </div>
@@ -54,4 +54,4 @@ class Page extends Component {
     }
 }
 
-export default withRouter(Page);
+export default Page;

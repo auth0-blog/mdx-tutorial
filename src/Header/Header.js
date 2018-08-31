@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import auth0Client from '../Auth';
+import auth from '../Auth';
 
 function Header(props) {
   const signOut = () => {
-    auth0Client.signOut();
+    auth.signOut();
     props.history.replace('/');
   };
 
@@ -14,13 +14,12 @@ function Header(props) {
         JollofJS Documentation App
       </Link>
       {
-        !auth0Client.isAuthenticated() &&
-        <button className="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
+        !auth.isAuthenticated() &&
+        <button className="btn btn-dark" onClick={auth.signIn}>Sign In</button>
       }
       {
-        auth0Client.isAuthenticated() &&
+        auth.isAuthenticated() &&
         <div>
-          <label className="mr-2 text-white">{auth0Client.getProfile().name}</label>
           <button className="btn btn-dark" onClick={() => {signOut()}}>Sign Out</button>
         </div>
       }

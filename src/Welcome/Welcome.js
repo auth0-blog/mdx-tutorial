@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import auth0Client from '../Auth';
 
 class Welcome extends Component {
   constructor(props) {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {Route, Router} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Header from './Header/Header';
 import Welcome from './Welcome/Welcome';
 import Callback from './Callback';
 import Page from "./Page/Page";
-import SecuredRoute from './SecuredRoute/SecuredRoute';
+import GuardedRoute from './GuardedRoute/GuardedRoute';
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
         <Header />
         <Route exact path='/' component={Welcome} />
         <Route exact path='/callback' component={Callback} />
-        <SecuredRoute path='/page/:page' component={Page} />
+        <GuardedRoute path='/page/:page' component={Page} />
       </div>
     );
   }

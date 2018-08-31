@@ -12,15 +12,10 @@ class Auth {
       scope: 'openid profile'
     });
 
-    this.getProfile = this.getProfile.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
-  }
-
-  getProfile() {
-    return this.profile;
   }
 
   getIdToken() {
@@ -35,7 +30,6 @@ class Auth {
           return reject(err);
         }
         this.idToken = authResult.idToken;
-        this.profile = authResult.idTokenPayload;
         // set the time that the id token will expire at
         this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
         resolve();
@@ -52,13 +46,12 @@ class Auth {
   }
 
   signOut() {
-    // clear id token, profile, and expiration
+    // clear id token, and expiration
     this.idToken = null;
-    this.profile = null;
     this.expiresAt = null;
   }
 }
 
-const auth0Client = new Auth();
+const auth = new Auth();
 
-export default auth0Client;
+export default auth;
