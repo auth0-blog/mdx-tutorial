@@ -8,7 +8,8 @@ class Page extends Component {
       super(props);
 
       this.state = {
-        Component: ''
+        Component: '',
+        page: this.props.match.params.page
       }
     }
 
@@ -31,11 +32,23 @@ class Page extends Component {
     }
 
     async componentDidMount() {
-      await this.addComponent(Page.capitalize(this.props.match.params.page));
+      await this.addComponent(Page.capitalize(this.state.page));
     }
 
-    async componentWillReceiveProps(nextProps) {
-      await this.addComponent(Page.capitalize(nextProps.match.params.page));
+    async componentDidUpdate(prevProps, prevState) {
+      if(prevState.page !== this.state.page) {
+         await this.addComponent(Page.capitalize(this.state.page));
+      }
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+      if(nextProps.match.params.page !== prevState.page) {
+        return {
+          page: nextProps.match.params.page
+        }
+      }
+
+      else return null;
     }
 
     render() {

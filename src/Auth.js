@@ -4,9 +4,9 @@ class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
       // the following three lines MUST be updated
-      domain: 'bk-tmp.auth0.com',
-      audience: 'https://bk-tmp.auth0.com/userinfo',
-      clientID: 'PVafIu9Q5QN65DiPByAFvCCJryY7n432',
+      domain: 'kabiyesi.auth0.com',
+      audience: 'https://kabiyesi.auth0.com/userinfo',
+      clientID: 'LUft9iOEONnQilP8mFDdmiBHdNljGJ2u',
       redirectUri: 'http://localhost:3000/callback',
       responseType: 'token id_token',
       scope: 'openid profile'
@@ -29,9 +29,7 @@ class Auth {
         if (!authResult || !authResult.idToken) {
           return reject(err);
         }
-        this.idToken = authResult.idToken;
-        // set the time that the id token will expire at
-        this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
+        this.setSession(authResult);
         resolve();
       });
     })
@@ -39,6 +37,12 @@ class Auth {
 
   isAuthenticated() {
     return new Date().getTime() < this.expiresAt;
+  }
+
+  setSession(authResult) {
+    this.idToken = authResult.idToken;
+    // set the time that the id token will expire at
+    this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
   }
 
   signIn() {
@@ -49,6 +53,16 @@ class Auth {
     // clear id token, and expiration
     this.idToken = null;
     this.expiresAt = null;
+  }
+
+  silentAuth() {
+    return new Promise((resolve, reject) => {
+      this.auth0.checkSession({}, (err, authResult) => {
+        if (err) return reject(err);
+        this.setSession(authResult);
+        resolve();
+      });
+    });
   }
 }
 

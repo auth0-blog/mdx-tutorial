@@ -6,7 +6,7 @@ function GuardedRoute(props) {
   const { component: Component, path} = props;
   return (
     <Route exact path={path} render={(props) => {
-     // if (!auth.isAuthenticated()) return auth.signIn();
+     if (!auth.isAuthenticated()) return auth.signIn();
       return <Component {...props} />
     }} />
   );
