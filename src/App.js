@@ -27,7 +27,7 @@ class App extends Component {
         <Header />
         <Route exact path='/' component={Welcome} />
         <Route exact path='/callback' component={Callback} />
-        <Route path='/page/:page' component={Page} />
+        <GuardedRoute path='/page/:page' component={Page} />
       </div>
     );
   }
