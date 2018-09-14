@@ -1,21 +1,21 @@
-.nav {
+.sidenav {
   flex: 1;
   flex-basis: 18%; }
-  .nav .navbar {
-    padding-top: 5rem;
+  .sidenav .sidenavbar {
+    padding-top: 2rem;
     height: 100%;
     overflow-y: scroll;
     border-right: 1px solid #f1f1f1; }
-    .nav .navbar a {
+    .sidenav .sidenavbar a {
       display: block;
-      padding: 2rem;
+      padding: 1rem;
       font-size: 1.5rem;
       font-weight: 300;
       text-decoration: none;
       border-top: 1px solid #f1f1f1;
       border-bottom: 1px solid #f1f1f1;
       color: #EB5323; }
-      .nav .navbar a.active, .nav .navbar a:hover {
+      .sidenav .sidenavbar a.active, .sidenav .sidenavbar a:hover {
         background-color: #EB5323;
         color: #ffffff;
         border-top: 1px solid #ffffff;
