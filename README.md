@@ -1,3 +1,9 @@
+Repo accompanying an Auth0 Blog post: [Learn How To Develop Apps with React and MDX](https://auth0.com/blog/how-to-build-an-app-with-react-and-mdx/)
+
+MDX is used to load, parse and render JSX in Markdown documents. In this tutorial, you'll learn how to use Markdown with React to build a project documentation app.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
